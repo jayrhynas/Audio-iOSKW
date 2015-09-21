@@ -13,6 +13,8 @@
 		9A55EE441BAF49A7006DFF30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A55EE421BAF49A7006DFF30 /* Main.storyboard */; };
 		9A55EE461BAF49A7006DFF30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A55EE451BAF49A7006DFF30 /* Assets.xcassets */; };
 		9A55EE491BAF49A7006DFF30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A55EE471BAF49A7006DFF30 /* LaunchScreen.storyboard */; };
+		9A55EE521BAF4AD7006DFF30 /* PianoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE511BAF4AD7006DFF30 /* PianoView.m */; settings = {ASSET_TAGS = (); }; };
+		9A55EE551BAF6B0D006DFF30 /* NSMapTable+Contains.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		9A55EE451BAF49A7006DFF30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A55EE481BAF49A7006DFF30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A55EE4A1BAF49A7006DFF30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A55EE501BAF4AD7006DFF30 /* PianoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PianoView.h; sourceTree = "<group>"; };
+		9A55EE511BAF4AD7006DFF30 /* PianoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PianoView.m; sourceTree = "<group>"; };
+		9A55EE531BAF6B0D006DFF30 /* NSMapTable+Contains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMapTable+Contains.h"; sourceTree = "<group>"; };
+		9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMapTable+Contains.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,10 @@
 				9A55EE3D1BAF49A7006DFF30 /* AppDelegate.m */,
 				9A55EE3F1BAF49A7006DFF30 /* ViewController.h */,
 				9A55EE401BAF49A7006DFF30 /* ViewController.m */,
+				9A55EE501BAF4AD7006DFF30 /* PianoView.h */,
+				9A55EE511BAF4AD7006DFF30 /* PianoView.m */,
+				9A55EE531BAF6B0D006DFF30 /* NSMapTable+Contains.h */,
+				9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */,
 				9A55EE421BAF49A7006DFF30 /* Main.storyboard */,
 				9A55EE451BAF49A7006DFF30 /* Assets.xcassets */,
 				9A55EE471BAF49A7006DFF30 /* LaunchScreen.storyboard */,
@@ -149,7 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A55EE521BAF4AD7006DFF30 /* PianoView.m in Sources */,
 				9A55EE411BAF49A7006DFF30 /* ViewController.m in Sources */,
+				9A55EE551BAF6B0D006DFF30 /* NSMapTable+Contains.m in Sources */,
 				9A55EE3E1BAF49A7006DFF30 /* AppDelegate.m in Sources */,
 				9A55EE3B1BAF49A7006DFF30 /* main.m in Sources */,
 			);
