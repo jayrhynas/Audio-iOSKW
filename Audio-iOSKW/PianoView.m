@@ -10,10 +10,10 @@
 
 #import "NSMapTable+Contains.h"
 
-static const int _numWhiteKeys = 7;
+static const int _numWhiteKeys = 8;
 static const int _numBlackKeys = 5;
 
-static const int _whitePattern[_numWhiteKeys] = {0, 2, 4, 5, 7, 9, 11};
+static const int _whitePattern[_numWhiteKeys] = {0, 2, 4, 5, 7, 9, 11, 12};
 static const int _blackPattern[_numBlackKeys] = {1, 3, 6, 8, 10};
 
 @interface PianoView ()
