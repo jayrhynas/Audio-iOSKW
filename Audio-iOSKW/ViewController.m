@@ -9,12 +9,23 @@
 #import "ViewController.h"
 
 #import "PianoView.h"
+#import "SoundController.h"
 
 @interface ViewController () <PianoDelegate>
+
+@property (strong, nonatomic) SoundController *soundController;
 
 @end
 
 @implementation ViewController
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (!(self = [super initWithCoder:aDecoder])) return nil;
+    
+    self.soundController = [[SoundController alloc] init];
+    
+    return self;
+}
 
 - (void)loadView {
     [super loadView];
@@ -42,11 +53,11 @@
 }
 
 - (void)keyStart:(int)key {
-    NSLog(@"start %d", key);
+    [self.soundController playNote:key + 60 withVolume:1.0];
 }
 
 - (void)keyStop:(int)key {
-    NSLog(@"stop %d", key);
+    [self.soundController stopNote:key + 60];
 }
 
 @end

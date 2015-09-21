@@ -15,6 +15,7 @@
 		9A55EE491BAF49A7006DFF30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A55EE471BAF49A7006DFF30 /* LaunchScreen.storyboard */; };
 		9A55EE521BAF4AD7006DFF30 /* PianoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE511BAF4AD7006DFF30 /* PianoView.m */; settings = {ASSET_TAGS = (); }; };
 		9A55EE551BAF6B0D006DFF30 /* NSMapTable+Contains.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */; settings = {ASSET_TAGS = (); }; };
+		9A55EE581BAF84EC006DFF30 /* SoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE571BAF84EC006DFF30 /* SoundController.m */; settings = {ASSET_TAGS = (); }; };
 		DF2FC430473C254E211E08FF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 813BE7CAE6D78A20E6A4CD83 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,8 @@
 		9A55EE511BAF4AD7006DFF30 /* PianoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PianoView.m; sourceTree = "<group>"; };
 		9A55EE531BAF6B0D006DFF30 /* NSMapTable+Contains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMapTable+Contains.h"; sourceTree = "<group>"; };
 		9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMapTable+Contains.m"; sourceTree = "<group>"; };
+		9A55EE561BAF84EC006DFF30 /* SoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundController.h; sourceTree = "<group>"; };
+		9A55EE571BAF84EC006DFF30 /* SoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundController.m; sourceTree = "<group>"; };
 		B3AFEEDF1AB02A8A2BCD909E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +91,8 @@
 				9A55EE511BAF4AD7006DFF30 /* PianoView.m */,
 				9A55EE531BAF6B0D006DFF30 /* NSMapTable+Contains.h */,
 				9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */,
+				9A55EE561BAF84EC006DFF30 /* SoundController.h */,
+				9A55EE571BAF84EC006DFF30 /* SoundController.m */,
 				9A55EE421BAF49A7006DFF30 /* Main.storyboard */,
 				9A55EE451BAF49A7006DFF30 /* Assets.xcassets */,
 				9A55EE471BAF49A7006DFF30 /* LaunchScreen.storyboard */,
@@ -223,6 +228,7 @@
 				9A55EE551BAF6B0D006DFF30 /* NSMapTable+Contains.m in Sources */,
 				9A55EE3E1BAF49A7006DFF30 /* AppDelegate.m in Sources */,
 				9A55EE3B1BAF49A7006DFF30 /* main.m in Sources */,
+				9A55EE581BAF84EC006DFF30 /* SoundController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
