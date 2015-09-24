@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A2646DD1BB4745600A6E3A0 /* SelectableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646DC1BB4745600A6E3A0 /* SelectableView.m */; settings = {ASSET_TAGS = (); }; };
 		9A55EE3B1BAF49A7006DFF30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE3A1BAF49A7006DFF30 /* main.m */; };
 		9A55EE3E1BAF49A7006DFF30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE3D1BAF49A7006DFF30 /* AppDelegate.m */; };
 		9A55EE411BAF49A7006DFF30 /* PianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE401BAF49A7006DFF30 /* PianoViewController.m */; };
@@ -24,6 +25,8 @@
 /* Begin PBXFileReference section */
 		645DFFBDF17D289EB1842BF0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		813BE7CAE6D78A20E6A4CD83 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A2646DB1BB4745600A6E3A0 /* SelectableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectableView.h; sourceTree = "<group>"; };
+		9A2646DC1BB4745600A6E3A0 /* SelectableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectableView.m; sourceTree = "<group>"; };
 		9A55EE361BAF49A7006DFF30 /* Audio-iOSKW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Audio-iOSKW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A55EE3A1BAF49A7006DFF30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9A55EE3C1BAF49A7006DFF30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				9A55EE511BAF4AD7006DFF30 /* PianoView.m */,
 				9A7F4D521BB467AD00F0F50B /* GridViewController.h */,
 				9A7F4D531BB467AD00F0F50B /* GridViewController.m */,
+				9A2646DB1BB4745600A6E3A0 /* SelectableView.h */,
+				9A2646DC1BB4745600A6E3A0 /* SelectableView.m */,
 				9A7F4D291BB4648F00F0F50B /* GridView.h */,
 				9A7F4D2A1BB4648F00F0F50B /* GridView.m */,
 				9A55EE531BAF6B0D006DFF30 /* NSMapTable+Contains.h */,
@@ -233,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2646DD1BB4745600A6E3A0 /* SelectableView.m in Sources */,
 				9A55EE521BAF4AD7006DFF30 /* PianoView.m in Sources */,
 				9A55EE411BAF49A7006DFF30 /* PianoViewController.m in Sources */,
 				9A7F4D2B1BB4648F00F0F50B /* GridView.m in Sources */,

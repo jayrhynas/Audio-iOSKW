@@ -9,13 +9,7 @@
 #import "PianoView.h"
 
 #import "NSMapTable+Contains.h"
-
-
-@interface PianoKey : UIControl
-@property (strong, nonatomic) UIColor *normalBackgroundColor;
-@property (strong, nonatomic) UIColor *selectedBackgroundColor;
-@end
-
+#import "SelectableView.h"
 
 static const int _numWhiteKeys = 8;
 static const int _numBlackKeys = 5;
@@ -63,7 +57,7 @@ static const int _blackPattern[_numBlackKeys] = {1, 3, 6, 8, 10};
             .size.height = whiteKeyHeight
         };
         
-        PianoKey *key = [[PianoKey alloc] initWithFrame:frame];
+        SelectableView *key = [[SelectableView alloc] initWithFrame:frame];
         key.tag = _whitePattern[i];
 
         key.normalBackgroundColor   = [UIColor whiteColor];
@@ -93,7 +87,7 @@ static const int _blackPattern[_numBlackKeys] = {1, 3, 6, 8, 10};
             frame.origin.x += keyWidth + pad;
         }
         
-        PianoKey *key = [[PianoKey alloc] initWithFrame:frame];
+        SelectableView *key = [[SelectableView alloc] initWithFrame:frame];
         key.tag = _blackPattern[i];
 
         key.normalBackgroundColor   = [UIColor blackColor];
@@ -117,8 +111,8 @@ static const int _blackPattern[_numBlackKeys] = {1, 3, 6, 8, 10};
 - (void)activateKeyForTouch:(UITouch *)touch {
     UIView *target = [self hitTest:[touch locationInView:self] withEvent:nil];
     
-    if (target && [target isKindOfClass:[PianoKey class]]) {
-        PianoKey *key = (PianoKey *)target;
+    if (target && [target isKindOfClass:[SelectableView class]]) {
+        SelectableView *key = (SelectableView *)target;
         
         NSNumber *oldKeyNum = [self.activeKeys objectForKey:touch];
         NSNumber *newKeyNum = @(key.tag);
@@ -135,7 +129,7 @@ static const int _blackPattern[_numBlackKeys] = {1, 3, 6, 8, 10};
             if (oldKeyNum && ![self.activeKeys containsObject:oldKeyNum]) {
                 [self.delegate keyStop:oldKeyNum.intValue];
                 
-                PianoKey *oldKey = (PianoKey *)[self viewWithTag:oldKeyNum.integerValue];
+                SelectableView *oldKey = (SelectableView *)[self viewWithTag:oldKeyNum.integerValue];
                 oldKey.selected = NO;
             }
         }
@@ -153,8 +147,8 @@ static const int _blackPattern[_numBlackKeys] = {1, 3, 6, 8, 10};
         if (![self.activeKeys containsObject:keyNum]) {
             [self.delegate keyStop:keyNum.intValue];
             
-            PianoKey *key = (PianoKey *)[self viewWithTag:keyNum.integerValue];
-            if ([key isKindOfClass:[PianoKey class]]) {
+            SelectableView *key = (SelectableView *)[self viewWithTag:keyNum.integerValue];
+            if ([key isKindOfClass:[SelectableView class]]) {
                 key.selected = NO;
             }
         }
@@ -163,8 +157,7 @@ static const int _blackPattern[_numBlackKeys] = {1, 3, 6, 8, 10};
 
 #pragma mark - Touch Handling
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-{
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     if ([self pointInside:point withEvent:event]) {
         for (UIView *view in [self.subviews reverseObjectEnumerator]) {
             CGPoint subviewPoint = [self convertPoint:point toView:view];
@@ -198,42 +191,6 @@ static const int _blackPattern[_numBlackKeys] = {1, 3, 6, 8, 10};
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     for (UITouch *touch in touches) {
         [self deactivateKeyForTouch:touch];
-    }
-}
-
-@end
-
-
-@implementation PianoKey
-
-- (void)setNormalBackgroundColor:(UIColor *)normalBackgroundColor {
-    if (normalBackgroundColor == _normalBackgroundColor) return;
-    
-    _normalBackgroundColor = normalBackgroundColor;
-    
-    if (!self.selected) {
-        self.backgroundColor = normalBackgroundColor;
-    }
-}
-
-- (void)setSelectedBackgroundColor:(UIColor *)selectedBackgroundColor {
-    if (selectedBackgroundColor == _selectedBackgroundColor) return;
-    
-    _selectedBackgroundColor = selectedBackgroundColor;
-    
-    if (self.selected) {
-        self.backgroundColor = selectedBackgroundColor ?: self.normalBackgroundColor;
-    }
-}
-
-- (void)setSelected:(BOOL)selected {
-    BOOL wasSelected = super.selected;
-    [super setSelected:selected];
-    
-    if (selected == wasSelected) return;
-    
-    if (self.selectedBackgroundColor) {
-        self.backgroundColor = selected ? self.selectedBackgroundColor : self.normalBackgroundColor;
     }
 }
 
