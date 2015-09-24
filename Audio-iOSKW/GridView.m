@@ -17,16 +17,17 @@ static const int _numCols = 16;
 static const int _colorPattern[_numRows] = {0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0};
 static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"E", @"F", @"F♯/G♭", @"G", @"G♯/A♭", @"A", @"A♯/B♭", @"B", @"C"};
 
-@interface GridView () {
-    BOOL _playing;
-}
+@interface GridView () <UITextFieldDelegate>
 
 @property (strong, nonatomic) UIView *grid;
 @property (strong, nonatomic) UIView *playhead;
+@property (strong, nonatomic) UIButton *playButton;
 
 @property (strong, nonatomic) NSMapTable<UITouch *, NSNumber *> *touches;
 
 @property (strong, nonatomic) CADisplayLink *displayLink;
+
+@property (nonatomic) int bpm;
 
 @end
 
@@ -34,6 +35,8 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (!(self = [super initWithFrame:frame])) return nil;
+    
+    _bpm = 128;
     
     [self buildGrid];
     
@@ -85,7 +88,7 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
         for (int r = 0; r < _numRows; r++) {
             CGPoint origin = {c * size.width, grid.frame.size.height - (r + 1) * size.height};
             SelectableView *cell = [[SelectableView alloc] initWithFrame:(CGRect){origin, size}];
-            cell.tag = r + (c * r);
+            cell.tag = r + (c * _numRows);
             
             cell.normalBackgroundColor = _colorPattern[r] ? [UIColor colorWithWhite:0.7 alpha:1.0] : [UIColor whiteColor];
             cell.selectedBackgroundColor = [UIColor colorWithRed:0.203 green:0.368 blue:0.948 alpha:1.000];
@@ -106,10 +109,12 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
     
     frame = grid.bounds;
     frame.size.width = 3;
-
-    UIView *playhead = [[UIView alloc] initWithFrame:frame];
-    playhead.backgroundColor = [UIColor colorWithRed:0.196 green:0.262 blue:0.623 alpha:1.000];
+    frame.origin.x = -5;
     
+    UIView *playhead = [[UIView alloc] initWithFrame:frame];
+    playhead.tag = -1;
+    playhead.backgroundColor = [UIColor colorWithRed:0.196 green:0.262 blue:0.623 alpha:1.000];
+
     self.playhead = playhead;
     [grid addSubview:playhead];
     
@@ -132,6 +137,7 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
         
         [playButton addTarget:self action:@selector(playPause:) forControlEvents:UIControlEventTouchUpInside];
         
+        self.playButton = playButton;
         [buttons addSubview:playButton];
         
         
@@ -145,6 +151,18 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
         [clearButton addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
         
         [buttons addSubview:clearButton];
+        
+        
+        frame.origin.y += frame.size.height + pad;
+        
+        UITextField *bpm = [[UITextField alloc] initWithFrame:frame];
+        bpm.text = [NSString stringWithFormat:@"%d BPM", self.bpm];
+        bpm.textAlignment = NSTextAlignmentCenter;
+        bpm.keyboardType = UIKeyboardTypeNumberPad;
+        bpm.returnKeyType = UIReturnKeyDone;
+        bpm.delegate = self;
+        
+        [buttons addSubview:bpm];
     }
     
     [self addSubview:buttons];
@@ -153,40 +171,99 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
 - (void)update:(CADisplayLink *)displayLink {
     if (_playing) {
         CGFloat gridWidth = self.grid.bounds.size.width;
+        CGFloat colWidth = gridWidth / _numCols;
+        
+        NSTimeInterval secs = displayLink.duration;
+        CGFloat pointsPerBeat = colWidth * 4;
+        CGFloat inc = pointsPerBeat * ((float)self.bpm / 60.0) * secs;
         
         CGRect frame = self.playhead.frame;
-        frame.origin.x += 10.0;
+        CGRect oldFrame = frame;
+        
+        frame.origin.x += inc;
         if (frame.origin.x > gridWidth) {
             frame.origin.x -= gridWidth;
         }
         
         self.playhead.frame = frame;
+        
+        int oldCol = floor(oldFrame.origin.x / colWidth);
+        int newCol = floor(frame.origin.x / colWidth);
+        
+        if (oldCol != newCol) {
+            int cols[2] = {oldCol, newCol};
+            
+            for (int i = 0; i < 2; i++) {
+                int c = cols[i];
+                if (c < 0 || c >= _numCols) continue;
+                
+                for (int r = 0; r < _numRows; r++) {
+                    int index = r + c * _numRows;
+                    SelectableView *cell = self.grid.subviews[index];
+                    
+                    if (cell.selected) {
+                        if (c == oldCol) {
+                            [self.delegate cellLeave:(Cell){r, c}];
+                        } else {
+                            [self.delegate cellEnter:(Cell){r, c}];
+                        }
+                    }
+                }
+            }
+        }
     }
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    textField.text = [textField.text stringByReplacingOccurrencesOfString:@" BPM" withString:@""];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSString *text = [textField.text stringByReplacingOccurrencesOfString:@" BPM" withString:@""];
+    int bpm = [text intValue];
+    bpm = MIN(MAX(bpm, 10), 300);
+    
+    self.bpm = bpm;
+    textField.text = [NSString stringWithFormat:@"%d BPM", bpm];
 }
 
 #pragma mark - Button Handlers
 
-- (void)playPause:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    _playing = sender.selected;
+- (void)setPlaying:(BOOL)playing {
+    if (playing == _playing) return;
+    _playing = playing;
+    
+    self.playButton.selected = _playing;
     
     if (!_playing) {
         CGRect frame = self.playhead.frame;
-        frame.origin.x = 0;
+        frame.origin.x = -5;
         self.playhead.frame = frame;
+        
+        [self.delegate playbackStopped];
     }
 }
 
+- (void)playPause:(UIButton *)sender {
+    self.playing = !self.playing;
+}
+
 - (void)delete:(UIButton *)sender {
+    
     for (SelectableView *subview in self.grid.subviews) {
         if (![subview isKindOfClass:[SelectableView class]]) continue;
         
         subview.selected = NO;
     }
     
-    CGRect frame = self.playhead.frame;
-    frame.origin.x = 0;
-    self.playhead.frame = frame;
+    self.playing = NO;
 }
 
 #pragma mark - Cell Handling

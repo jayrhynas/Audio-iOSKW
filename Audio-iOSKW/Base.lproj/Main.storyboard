@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="1079" y="-283"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="Ctp-Yr-zVo">
             <objects>
-                <tabBarController id="L13-q7-uji" sceneMemberID="viewController">
+                <tabBarController id="L13-q7-uji" customClass="TabBarViewController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="jPi-2t-PwO">

@@ -12,5 +12,6 @@
 
 - (void)playNote:(int)note withVolume:(float)volume;
 - (void)stopNote:(int)note;
+- (void)stopAllNotes;
 
 @end

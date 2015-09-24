@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class SoundController;
+
 @interface GridViewController : UIViewController
 
+@property (weak, nonatomic) SoundController *soundController;
+
 @end
+

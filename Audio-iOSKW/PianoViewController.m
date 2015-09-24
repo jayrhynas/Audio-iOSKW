@@ -12,9 +12,6 @@
 #import "SoundController.h"
 
 @interface PianoViewController () <PianoDelegate>
-
-@property (strong, nonatomic) SoundController *soundController;
-
 @end
 
 @implementation PianoViewController
@@ -22,8 +19,6 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (!(self = [super initWithCoder:aDecoder])) return nil;
     
-    self.soundController = [[SoundController alloc] init];
-
     return self;
 }
 

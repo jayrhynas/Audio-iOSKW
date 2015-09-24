@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class SoundController;
+
 @interface PianoViewController : UIViewController
 
+@property (weak, nonatomic) SoundController *soundController;
 
 @end
 

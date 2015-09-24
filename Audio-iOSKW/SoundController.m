@@ -13,9 +13,6 @@
 typedef NS_ENUM(UInt32, MIDIMessage) {
     MIDINoteOn        = 0x9 << 4,
     MIDINoteOff       = 0x8 << 4,
-    MIDIChannelMode   = 0xB << 4,
-    MIDIProgramChange = 0xC << 4,
-    MIDIAllNotesOff   = 0x7B,
 };
 
 #define LogErr( result, fmt, ... ) \
@@ -106,5 +103,11 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
 - (void)stopNote:(int)note {
     LogErr(MusicDeviceMIDIEvent(self.samplerChannel.audioUnit, MIDINoteOff, note, 127, 0),
            @"Couldn't stop note: %d", note);
+}
+
+- (void)stopAllNotes {
+    for (int i = 0; i < 128; i++) {
+        [self stopNote:i];
+    }
 }
 @end

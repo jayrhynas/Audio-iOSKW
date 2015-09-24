@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A2646DD1BB4745600A6E3A0 /* SelectableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646DC1BB4745600A6E3A0 /* SelectableView.m */; settings = {ASSET_TAGS = (); }; };
+		9A2646E01BB47F2400A6E3A0 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646DF1BB47F2400A6E3A0 /* TabBarViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9A55EE3B1BAF49A7006DFF30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE3A1BAF49A7006DFF30 /* main.m */; };
 		9A55EE3E1BAF49A7006DFF30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE3D1BAF49A7006DFF30 /* AppDelegate.m */; };
 		9A55EE411BAF49A7006DFF30 /* PianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE401BAF49A7006DFF30 /* PianoViewController.m */; };
@@ -27,6 +28,8 @@
 		813BE7CAE6D78A20E6A4CD83 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2646DB1BB4745600A6E3A0 /* SelectableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectableView.h; sourceTree = "<group>"; };
 		9A2646DC1BB4745600A6E3A0 /* SelectableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectableView.m; sourceTree = "<group>"; };
+		9A2646DE1BB47F2400A6E3A0 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		9A2646DF1BB47F2400A6E3A0 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		9A55EE361BAF49A7006DFF30 /* Audio-iOSKW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Audio-iOSKW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A55EE3A1BAF49A7006DFF30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9A55EE3C1BAF49A7006DFF30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 			children = (
 				9A55EE3C1BAF49A7006DFF30 /* AppDelegate.h */,
 				9A55EE3D1BAF49A7006DFF30 /* AppDelegate.m */,
+				9A2646DE1BB47F2400A6E3A0 /* TabBarViewController.h */,
+				9A2646DF1BB47F2400A6E3A0 /* TabBarViewController.m */,
 				9A55EE3F1BAF49A7006DFF30 /* PianoViewController.h */,
 				9A55EE401BAF49A7006DFF30 /* PianoViewController.m */,
 				9A55EE501BAF4AD7006DFF30 /* PianoView.h */,
@@ -238,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2646E01BB47F2400A6E3A0 /* TabBarViewController.m in Sources */,
 				9A2646DD1BB4745600A6E3A0 /* SelectableView.m in Sources */,
 				9A55EE521BAF4AD7006DFF30 /* PianoView.m in Sources */,
 				9A55EE411BAF49A7006DFF30 /* PianoViewController.m in Sources */,
