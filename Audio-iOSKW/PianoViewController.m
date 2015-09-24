@@ -1,34 +1,34 @@
 //
-//  ViewController.m
+//  PianoViewController.m
 //  Audio-iOSKW
 //
 //  Created by Jayson Rhynas on 2015-09-20.
 //  Copyright © 2015 jayrhynas. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "PianoViewController.h"
 
 #import "PianoView.h"
 #import "SoundController.h"
 
-@interface ViewController () <PianoDelegate>
+@interface PianoViewController () <PianoDelegate>
 
 @property (strong, nonatomic) SoundController *soundController;
 
 @end
 
-@implementation ViewController
+@implementation PianoViewController
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (!(self = [super initWithCoder:aDecoder])) return nil;
     
     self.soundController = [[SoundController alloc] init];
-    
+
     return self;
 }
 
-- (void)loadView {
-    [super loadView];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor grayColor];
     [self setupPianoView];
@@ -36,16 +36,11 @@
 
 - (void)setupPianoView {
     const CGFloat pad = 20;
-    CGRect frame = CGRectInset(self.view.bounds, pad, 0);
-    frame.origin.y += 50;
-    frame.size.height -= frame.origin.y + pad;
+    CGRect frame = CGRectInset(self.view.bounds, pad, pad);
+    frame.origin.y += 15;
+    frame.size.height -= 64;
     
     PianoView *piano = [[PianoView alloc] initWithFrame:frame];
-    
-    piano.clipsToBounds = YES;
-    piano.layer.cornerRadius = 10;
-    piano.layer.borderWidth = 1;
-    piano.layer.borderColor = [UIColor blackColor].CGColor;
     
     piano.delegate = self;
     

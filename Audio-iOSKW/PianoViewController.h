@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PianoViewController.h
 //  Audio-iOSKW
 //
 //  Created by Jayson Rhynas on 2015-09-20.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface PianoViewController : UIViewController
 
 
 @end

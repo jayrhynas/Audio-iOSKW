@@ -32,6 +32,11 @@ static const int _blackPattern[_numBlackKeys] = {1, 3, 6, 8, 10};
 - (instancetype)initWithFrame:(CGRect)frame {
     if (!(self = [super initWithFrame:frame])) return nil;
     
+    self.clipsToBounds = YES;
+    self.layer.cornerRadius = 10;
+    self.layer.borderWidth = 1;
+    self.layer.borderColor = [UIColor blackColor].CGColor;
+
     [self buildAllKeys];
     
     self.activeKeys = [NSMapTable mapTableWithKeyOptions:NSMapTableObjectPointerPersonality
