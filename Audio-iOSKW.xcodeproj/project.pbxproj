@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A2646DD1BB4745600A6E3A0 /* SelectableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646DC1BB4745600A6E3A0 /* SelectableView.m */; settings = {ASSET_TAGS = (); }; };
 		9A2646E01BB47F2400A6E3A0 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646DF1BB47F2400A6E3A0 /* TabBarViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A2646E31BB4985B00A6E3A0 /* PlaybackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646E21BB4985B00A6E3A0 /* PlaybackController.m */; settings = {ASSET_TAGS = (); }; };
 		9A55EE3B1BAF49A7006DFF30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE3A1BAF49A7006DFF30 /* main.m */; };
 		9A55EE3E1BAF49A7006DFF30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE3D1BAF49A7006DFF30 /* AppDelegate.m */; };
 		9A55EE411BAF49A7006DFF30 /* PianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE401BAF49A7006DFF30 /* PianoViewController.m */; };
@@ -30,6 +31,9 @@
 		9A2646DC1BB4745600A6E3A0 /* SelectableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectableView.m; sourceTree = "<group>"; };
 		9A2646DE1BB47F2400A6E3A0 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		9A2646DF1BB47F2400A6E3A0 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		9A2646E11BB4985B00A6E3A0 /* PlaybackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackController.h; sourceTree = "<group>"; };
+		9A2646E21BB4985B00A6E3A0 /* PlaybackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackController.m; sourceTree = "<group>"; };
+		9A2646E41BB49B1300A6E3A0 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		9A55EE361BAF49A7006DFF30 /* Audio-iOSKW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Audio-iOSKW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A55EE3A1BAF49A7006DFF30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9A55EE3C1BAF49A7006DFF30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +117,9 @@
 				9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */,
 				9A55EE561BAF84EC006DFF30 /* SoundController.h */,
 				9A55EE571BAF84EC006DFF30 /* SoundController.m */,
+				9A2646E11BB4985B00A6E3A0 /* PlaybackController.h */,
+				9A2646E21BB4985B00A6E3A0 /* PlaybackController.m */,
+				9A2646E41BB49B1300A6E3A0 /* Constants.h */,
 				9A55EE421BAF49A7006DFF30 /* Main.storyboard */,
 				9A55EE451BAF49A7006DFF30 /* Assets.xcassets */,
 				9A55EE471BAF49A7006DFF30 /* LaunchScreen.storyboard */,
@@ -244,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A2646E01BB47F2400A6E3A0 /* TabBarViewController.m in Sources */,
+				9A2646E31BB4985B00A6E3A0 /* PlaybackController.m in Sources */,
 				9A2646DD1BB4745600A6E3A0 /* SelectableView.m in Sources */,
 				9A55EE521BAF4AD7006DFF30 /* PianoView.m in Sources */,
 				9A55EE411BAF49A7006DFF30 /* PianoViewController.m in Sources */,

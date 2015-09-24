@@ -9,9 +9,9 @@
 #import "GridViewController.h"
 
 #import "GridView.h"
-#import "SoundController.h"
+#import "PlaybackController.h"
 
-@interface GridViewController() <GridDelegate>
+@interface GridViewController()
 
 @property (strong, nonatomic) GridView *grid;
 
@@ -39,23 +39,15 @@
     frame.size.height -= 64;
     
     GridView *grid = [[GridView alloc] initWithFrame:frame];
-    
-    grid.delegate = self;
+    grid.delegate = self.playbackController;
     
     self.grid = grid;
     [self.view addSubview:grid];
 }
 
-- (void)cellEnter:(Cell)cell {
-    [self.soundController playNote:cell.row + 60 withVolume:1.0];
-}
-
-- (void)cellLeave:(Cell)cell {
-    [self.soundController stopNote:cell.row + 60];
-}
-
-- (void)playbackStopped {
-    [self.soundController stopAllNotes];
+- (void)setPlaybackController:(PlaybackController *)playbackController {
+    _playbackController = playbackController;
+    self.grid.delegate = playbackController;
 }
 
 @end

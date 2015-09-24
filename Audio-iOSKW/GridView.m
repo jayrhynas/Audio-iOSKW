@@ -9,13 +9,19 @@
 #import "GridView.h"
 
 #import "SelectableView.h"
+#import "Constants.h"
+
+static const int _colorPattern[GridRows] = {0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0};
+static NSString *_labels[GridRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"E", @"F", @"F♯/G♭", @"G", @"G♯/A♭", @"A", @"A♯/B♭", @"B", @"C"};
 
 
-static const int _numRows = 13;
-static const int _numCols = 16;
+Cell CellFromTag(NSInteger tag) {
+    return (Cell){tag % GridRows, (int)tag / GridRows};
+}
 
-static const int _colorPattern[_numRows] = {0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0};
-static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"E", @"F", @"F♯/G♭", @"G", @"G♯/A♭", @"A", @"A♯/B♭", @"B", @"C"};
+NSInteger TagFromCell(Cell cell) {
+    return cell.row + cell.col * GridRows;
+}
 
 @interface GridView () <UITextFieldDelegate>
 
@@ -32,6 +38,33 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
 @end
 
 @implementation GridView
+
+#pragma mark - Properties
+
+
+- (void)setPlaying:(BOOL)playing {
+    if (playing == _playing) return;
+    _playing = playing;
+    
+    self.playButton.selected = _playing;
+    
+    if (!_playing) {
+        CGRect frame = self.playhead.frame;
+        frame.origin.x = -5;
+        self.playhead.frame = frame;
+    }
+    
+    [self.delegate playbackToggled:_playing];
+}
+
+- (void)setBpm:(int)bpm {
+    if (bpm == _bpm) return;
+    _bpm = bpm;
+    
+    [self.delegate bpmChanged:bpm];
+}
+
+#pragma mark - Initialization & Setup
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (!(self = [super initWithFrame:frame])) return nil;
@@ -52,14 +85,14 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
 - (void)buildGrid {
     const CGFloat pad = 20.0;
     
-    const CGSize size = {self.bounds.size.height / _numRows, self.bounds.size.height / _numRows};
+    const CGSize size = {self.bounds.size.height / GridRows, self.bounds.size.height / GridRows};
     
     CGRect frame = self.bounds;
     frame.size.width = size.width;
     
     UIView *labels = [[UIView alloc] initWithFrame:frame];
     
-    for (int r = 0; r < _numRows; r++) {
+    for (int r = 0; r < GridRows; r++) {
         CGPoint origin = {0, labels.frame.size.height - (r + 1) * size.height};
         UILabel *label = [[UILabel alloc] initWithFrame:(CGRect){origin, size}];
         label.tag = r;
@@ -74,7 +107,7 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
     
     
     frame = self.bounds;
-    frame.size.width = size.width * _numCols;
+    frame.size.width = size.width * GridCols;
     frame.origin.x = labels.frame.origin.x + labels.frame.size.width + pad;
     
     UIView *grid = [[UIView alloc] initWithFrame:frame];
@@ -84,11 +117,11 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
     grid.layer.borderWidth = 1;
     grid.layer.borderColor = [UIColor blackColor].CGColor;
     
-    for (int c = 0; c < _numCols; c++) {
-        for (int r = 0; r < _numRows; r++) {
+    for (int c = 0; c < GridCols; c++) {
+        for (int r = 0; r < GridRows; r++) {
             CGPoint origin = {c * size.width, grid.frame.size.height - (r + 1) * size.height};
             SelectableView *cell = [[SelectableView alloc] initWithFrame:(CGRect){origin, size}];
-            cell.tag = r + (c * _numRows);
+            cell.tag = TagFromCell((Cell){r, c});
             
             cell.normalBackgroundColor = _colorPattern[r] ? [UIColor colorWithWhite:0.7 alpha:1.0] : [UIColor whiteColor];
             cell.selectedBackgroundColor = [UIColor colorWithRed:0.203 green:0.368 blue:0.948 alpha:1.000];
@@ -171,7 +204,7 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
 - (void)update:(CADisplayLink *)displayLink {
     if (_playing) {
         CGFloat gridWidth = self.grid.bounds.size.width;
-        CGFloat colWidth = gridWidth / _numCols;
+        CGFloat colWidth = gridWidth / GridCols;
         
         NSTimeInterval secs = displayLink.duration;
         CGFloat pointsPerBeat = colWidth * 4;
@@ -195,10 +228,10 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
             
             for (int i = 0; i < 2; i++) {
                 int c = cols[i];
-                if (c < 0 || c >= _numCols) continue;
+                if (c < 0 || c >= GridCols) continue;
                 
-                for (int r = 0; r < _numRows; r++) {
-                    int index = r + c * _numRows;
+                for (int r = 0; r < GridRows; r++) {
+                    NSInteger index = TagFromCell((Cell){r, c});
                     SelectableView *cell = self.grid.subviews[index];
                     
                     if (cell.selected) {
@@ -236,21 +269,6 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
 
 #pragma mark - Button Handlers
 
-- (void)setPlaying:(BOOL)playing {
-    if (playing == _playing) return;
-    _playing = playing;
-    
-    self.playButton.selected = _playing;
-    
-    if (!_playing) {
-        CGRect frame = self.playhead.frame;
-        frame.origin.x = -5;
-        self.playhead.frame = frame;
-        
-        [self.delegate playbackStopped];
-    }
-}
-
 - (void)playPause:(UIButton *)sender {
     self.playing = !self.playing;
 }
@@ -261,6 +279,7 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
         if (![subview isKindOfClass:[SelectableView class]]) continue;
         
         subview.selected = NO;
+        [self.delegate cellToggled:CellFromTag(subview.tag) toState:subview.selected];
     }
     
     self.playing = NO;
@@ -284,6 +303,8 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
     cell.selected = newState;
     
     [self.touches setObject:@(newState) forKey:touch];
+    
+    [self.delegate cellToggled:CellFromTag(cell.tag) toState:cell.selected];
 }
 
 - (void)drag:(UITouch *)touch {
@@ -293,6 +314,8 @@ static NSString *_labels[_numRows] = {@"C", @"C♯/D♭", @"D", @"D♯/E♭", @"
     NSNumber *savedState = [self.touches objectForKey:touch];
     if (savedState) {
         cell.selected = [savedState boolValue];
+        
+        [self.delegate cellToggled:CellFromTag(cell.tag) toState:cell.selected];
     }
 }
 

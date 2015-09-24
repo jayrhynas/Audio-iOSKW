@@ -10,6 +10,7 @@
 
 #import "PianoView.h"
 #import "SoundController.h"
+#import "Constants.h"
 
 @interface PianoViewController () <PianoDelegate>
 @end
@@ -43,11 +44,11 @@
 }
 
 - (void)keyStart:(int)key {
-    [self.soundController playNote:key + 60 withVolume:1.0];
+    [self.soundController playNote:key + BaseNote withVolume:1.0];
 }
 
 - (void)keyStop:(int)key {
-    [self.soundController stopNote:key + 60];
+    [self.soundController stopNote:key + BaseNote];
 }
 
 @end

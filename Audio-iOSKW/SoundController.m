@@ -15,6 +15,7 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
     MIDINoteOff       = 0x8 << 4,
 };
 
+#if DEBUG
 #define LogErr( result, fmt, ... ) \
 { \
     OSStatus error = (result); \
@@ -22,10 +23,15 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
         NSLog(fmt @" [%d]", ##__VA_ARGS__, (int)error); \
     } \
 }
+#else
+#define LogErr( ... ) {}
+#endif
 
-@interface SoundController ()
-@property (strong, nonatomic) AEAudioController *engine;
+@interface SoundController () {
+    AudioUnit _samplerUnit;
+}
 
+@property (strong, nonatomic, readwrite) AEAudioController *engine;
 @property (strong, nonatomic) AEAudioUnitChannel *samplerChannel;
 @end
 
@@ -51,8 +57,9 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
                                                                             kAudioUnitSubType_Sampler);
     
     self.samplerChannel = [[AEAudioUnitChannel alloc] initWithComponentDescription:samplerDesc];
-    
     [self.engine addChannels:@[self.samplerChannel]];
+    
+    _samplerUnit = self.samplerChannel.audioUnit;
 }
 
 #pragma mark - Instruments
@@ -94,20 +101,33 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
 
 #pragma mark - Notes
 
-- (void)playNote:(int)note withVolume:(float)volume {
+void SoundControllerPlayNote(SoundController* sc, int note, float volume, UInt32 offset) {
     UInt32 midiVol = volume * 127;
-    LogErr(MusicDeviceMIDIEvent(self.samplerChannel.audioUnit, MIDINoteOn, note, midiVol, 0),
+    LogErr(MusicDeviceMIDIEvent(sc->_samplerUnit, MIDINoteOn, note, midiVol, 0),
            @"Couldn't play note: %d", note);
 }
 
-- (void)stopNote:(int)note {
-    LogErr(MusicDeviceMIDIEvent(self.samplerChannel.audioUnit, MIDINoteOff, note, 127, 0),
+void SoundControllerStopNote(SoundController* sc, int note, UInt32 offset) {
+    LogErr(MusicDeviceMIDIEvent(sc->_samplerUnit, MIDINoteOff, note, 127, 0),
            @"Couldn't stop note: %d", note);
 }
 
-- (void)stopAllNotes {
+void SoundControllerStopAllNotes(SoundController* sc, UInt32 offset) {
     for (int i = 0; i < 128; i++) {
-        [self stopNote:i];
+        SoundControllerStopNote(sc, i, offset);
     }
 }
+
+- (void)playNote:(int)note withVolume:(float)volume {
+    SoundControllerPlayNote(self, note, volume, 0);
+}
+
+- (void)stopNote:(int)note {
+    SoundControllerStopNote(self, note, 0);
+}
+
+- (void)stopAllNotes {
+    SoundControllerStopAllNotes(self, 0);
+}
+
 @end

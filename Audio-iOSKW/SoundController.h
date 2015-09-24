@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class AEAudioController;
+
 @interface SoundController : NSObject
+
+@property (strong, nonatomic, readonly) AEAudioController *engine;
 
 - (void)playNote:(int)note withVolume:(float)volume;
 - (void)stopNote:(int)note;
 - (void)stopAllNotes;
+
+void SoundControllerPlayNote(SoundController* sc, int note, float volume, UInt32 offset);
+void SoundControllerStopNote(SoundController* sc, int note, UInt32 offset);
+void SoundControllerStopAllNotes(SoundController* sc, UInt32 offset);
 
 @end

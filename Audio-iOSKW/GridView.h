@@ -15,13 +15,13 @@ typedef struct {
 
 @protocol GridDelegate
 
-//- (void)cellOn:(Cell)cell;
-//- (void)cellOff:(Cell)cell;
+- (void)cellToggled:(Cell)cell toState:(BOOL)state;
 
 - (void)cellEnter:(Cell)cell;
 - (void)cellLeave:(Cell)cell;
 
-- (void)playbackStopped;
+- (void)playbackToggled:(BOOL)playing;
+- (void)bpmChanged:(int)bpm;
 
 @end
 
