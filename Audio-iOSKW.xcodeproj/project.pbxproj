@@ -7,55 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A2646DD1BB4745600A6E3A0 /* SelectableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646DC1BB4745600A6E3A0 /* SelectableView.m */; settings = {ASSET_TAGS = (); }; };
-		9A2646E01BB47F2400A6E3A0 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646DF1BB47F2400A6E3A0 /* TabBarViewController.m */; settings = {ASSET_TAGS = (); }; };
-		9A2646E31BB4985B00A6E3A0 /* PlaybackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646E21BB4985B00A6E3A0 /* PlaybackController.m */; settings = {ASSET_TAGS = (); }; };
 		9A2646EA1BB598C600A6E3A0 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 9A2646E91BB598C600A6E3A0 /* Sounds */; settings = {ASSET_TAGS = (); }; };
+		9A2647001BB59E8500A6E3A0 /* PlaybackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646ED1BB59E8500A6E3A0 /* PlaybackController.m */; settings = {ASSET_TAGS = (); }; };
+		9A2647011BB59E8500A6E3A0 /* SoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646EF1BB59E8500A6E3A0 /* SoundController.m */; settings = {ASSET_TAGS = (); }; };
+		9A2647021BB59E8500A6E3A0 /* NSMapTable+Contains.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646F21BB59E8500A6E3A0 /* NSMapTable+Contains.m */; settings = {ASSET_TAGS = (); }; };
+		9A2647031BB59E8500A6E3A0 /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646F51BB59E8500A6E3A0 /* GridView.m */; settings = {ASSET_TAGS = (); }; };
+		9A2647041BB59E8500A6E3A0 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646F71BB59E8500A6E3A0 /* GridViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A2647051BB59E8500A6E3A0 /* PianoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646F91BB59E8500A6E3A0 /* PianoView.m */; settings = {ASSET_TAGS = (); }; };
+		9A2647061BB59E8500A6E3A0 /* PianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646FB1BB59E8500A6E3A0 /* PianoViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A2647071BB59E8500A6E3A0 /* SelectableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646FD1BB59E8500A6E3A0 /* SelectableView.m */; settings = {ASSET_TAGS = (); }; };
+		9A2647081BB59E8500A6E3A0 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2646FF1BB59E8500A6E3A0 /* TabBarViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A26470B1BB59F8700A6E3A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A26470A1BB59F8700A6E3A0 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		9A55EE3B1BAF49A7006DFF30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE3A1BAF49A7006DFF30 /* main.m */; };
 		9A55EE3E1BAF49A7006DFF30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE3D1BAF49A7006DFF30 /* AppDelegate.m */; };
-		9A55EE411BAF49A7006DFF30 /* PianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE401BAF49A7006DFF30 /* PianoViewController.m */; };
 		9A55EE441BAF49A7006DFF30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A55EE421BAF49A7006DFF30 /* Main.storyboard */; };
-		9A55EE461BAF49A7006DFF30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A55EE451BAF49A7006DFF30 /* Assets.xcassets */; };
 		9A55EE491BAF49A7006DFF30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A55EE471BAF49A7006DFF30 /* LaunchScreen.storyboard */; };
-		9A55EE521BAF4AD7006DFF30 /* PianoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE511BAF4AD7006DFF30 /* PianoView.m */; settings = {ASSET_TAGS = (); }; };
-		9A55EE551BAF6B0D006DFF30 /* NSMapTable+Contains.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */; settings = {ASSET_TAGS = (); }; };
-		9A55EE581BAF84EC006DFF30 /* SoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55EE571BAF84EC006DFF30 /* SoundController.m */; settings = {ASSET_TAGS = (); }; };
-		9A7F4D2B1BB4648F00F0F50B /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F4D2A1BB4648F00F0F50B /* GridView.m */; settings = {ASSET_TAGS = (); }; };
-		9A7F4D541BB467AD00F0F50B /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F4D531BB467AD00F0F50B /* GridViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DF2FC430473C254E211E08FF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 813BE7CAE6D78A20E6A4CD83 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		645DFFBDF17D289EB1842BF0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		813BE7CAE6D78A20E6A4CD83 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A2646DB1BB4745600A6E3A0 /* SelectableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectableView.h; sourceTree = "<group>"; };
-		9A2646DC1BB4745600A6E3A0 /* SelectableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectableView.m; sourceTree = "<group>"; };
-		9A2646DE1BB47F2400A6E3A0 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
-		9A2646DF1BB47F2400A6E3A0 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
-		9A2646E11BB4985B00A6E3A0 /* PlaybackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackController.h; sourceTree = "<group>"; };
-		9A2646E21BB4985B00A6E3A0 /* PlaybackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackController.m; sourceTree = "<group>"; };
 		9A2646E41BB49B1300A6E3A0 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		9A2646E91BB598C600A6E3A0 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sounds; path = Resources/Sounds; sourceTree = "<group>"; };
+		9A2646E91BB598C600A6E3A0 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		9A2646EC1BB59E8500A6E3A0 /* PlaybackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackController.h; sourceTree = "<group>"; };
+		9A2646ED1BB59E8500A6E3A0 /* PlaybackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaybackController.m; sourceTree = "<group>"; };
+		9A2646EE1BB59E8500A6E3A0 /* SoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundController.h; sourceTree = "<group>"; };
+		9A2646EF1BB59E8500A6E3A0 /* SoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundController.m; sourceTree = "<group>"; };
+		9A2646F11BB59E8500A6E3A0 /* NSMapTable+Contains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMapTable+Contains.h"; sourceTree = "<group>"; };
+		9A2646F21BB59E8500A6E3A0 /* NSMapTable+Contains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMapTable+Contains.m"; sourceTree = "<group>"; };
+		9A2646F41BB59E8500A6E3A0 /* GridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridView.h; sourceTree = "<group>"; };
+		9A2646F51BB59E8500A6E3A0 /* GridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridView.m; sourceTree = "<group>"; };
+		9A2646F61BB59E8500A6E3A0 /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
+		9A2646F71BB59E8500A6E3A0 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
+		9A2646F81BB59E8500A6E3A0 /* PianoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PianoView.h; sourceTree = "<group>"; };
+		9A2646F91BB59E8500A6E3A0 /* PianoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PianoView.m; sourceTree = "<group>"; };
+		9A2646FA1BB59E8500A6E3A0 /* PianoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PianoViewController.h; sourceTree = "<group>"; };
+		9A2646FB1BB59E8500A6E3A0 /* PianoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PianoViewController.m; sourceTree = "<group>"; };
+		9A2646FC1BB59E8500A6E3A0 /* SelectableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectableView.h; sourceTree = "<group>"; };
+		9A2646FD1BB59E8500A6E3A0 /* SelectableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectableView.m; sourceTree = "<group>"; };
+		9A2646FE1BB59E8500A6E3A0 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		9A2646FF1BB59E8500A6E3A0 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		9A26470A1BB59F8700A6E3A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A55EE361BAF49A7006DFF30 /* Audio-iOSKW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Audio-iOSKW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A55EE3A1BAF49A7006DFF30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9A55EE3C1BAF49A7006DFF30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9A55EE3D1BAF49A7006DFF30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9A55EE3F1BAF49A7006DFF30 /* PianoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PianoViewController.h; sourceTree = "<group>"; };
-		9A55EE401BAF49A7006DFF30 /* PianoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PianoViewController.m; sourceTree = "<group>"; };
 		9A55EE431BAF49A7006DFF30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9A55EE451BAF49A7006DFF30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A55EE481BAF49A7006DFF30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A55EE4A1BAF49A7006DFF30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A55EE501BAF4AD7006DFF30 /* PianoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PianoView.h; sourceTree = "<group>"; };
-		9A55EE511BAF4AD7006DFF30 /* PianoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PianoView.m; sourceTree = "<group>"; };
-		9A55EE531BAF6B0D006DFF30 /* NSMapTable+Contains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMapTable+Contains.h"; sourceTree = "<group>"; };
-		9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMapTable+Contains.m"; sourceTree = "<group>"; };
-		9A55EE561BAF84EC006DFF30 /* SoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundController.h; sourceTree = "<group>"; };
-		9A55EE571BAF84EC006DFF30 /* SoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundController.m; sourceTree = "<group>"; };
-		9A7F4D291BB4648F00F0F50B /* GridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridView.h; sourceTree = "<group>"; };
-		9A7F4D2A1BB4648F00F0F50B /* GridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridView.m; sourceTree = "<group>"; };
-		9A7F4D521BB467AD00F0F50B /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
-		9A7F4D531BB467AD00F0F50B /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		B3AFEEDF1AB02A8A2BCD909E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +80,56 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9A2646EB1BB59E8500A6E3A0 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				9A2646EC1BB59E8500A6E3A0 /* PlaybackController.h */,
+				9A2646ED1BB59E8500A6E3A0 /* PlaybackController.m */,
+				9A2646EE1BB59E8500A6E3A0 /* SoundController.h */,
+				9A2646EF1BB59E8500A6E3A0 /* SoundController.m */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		9A2646F01BB59E8500A6E3A0 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9A2646F11BB59E8500A6E3A0 /* NSMapTable+Contains.h */,
+				9A2646F21BB59E8500A6E3A0 /* NSMapTable+Contains.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		9A2646F31BB59E8500A6E3A0 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				9A55EE421BAF49A7006DFF30 /* Main.storyboard */,
+				9A55EE471BAF49A7006DFF30 /* LaunchScreen.storyboard */,
+				9A2646F41BB59E8500A6E3A0 /* GridView.h */,
+				9A2646F51BB59E8500A6E3A0 /* GridView.m */,
+				9A2646F61BB59E8500A6E3A0 /* GridViewController.h */,
+				9A2646F71BB59E8500A6E3A0 /* GridViewController.m */,
+				9A2646F81BB59E8500A6E3A0 /* PianoView.h */,
+				9A2646F91BB59E8500A6E3A0 /* PianoView.m */,
+				9A2646FA1BB59E8500A6E3A0 /* PianoViewController.h */,
+				9A2646FB1BB59E8500A6E3A0 /* PianoViewController.m */,
+				9A2646FC1BB59E8500A6E3A0 /* SelectableView.h */,
+				9A2646FD1BB59E8500A6E3A0 /* SelectableView.m */,
+				9A2646FE1BB59E8500A6E3A0 /* TabBarViewController.h */,
+				9A2646FF1BB59E8500A6E3A0 /* TabBarViewController.m */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		9A2647091BB59F6700A6E3A0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9A26470A1BB59F8700A6E3A0 /* Assets.xcassets */,
+				9A2646E91BB598C600A6E3A0 /* Sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		9A55EE2D1BAF49A7006DFF30 = {
 			isa = PBXGroup;
 			children = (
@@ -101,31 +151,13 @@
 		9A55EE381BAF49A7006DFF30 /* Audio-iOSKW */ = {
 			isa = PBXGroup;
 			children = (
+				9A2646EB1BB59E8500A6E3A0 /* Audio */,
+				9A2646F01BB59E8500A6E3A0 /* Categories */,
+				9A2646F31BB59E8500A6E3A0 /* Interface */,
+				9A2647091BB59F6700A6E3A0 /* Resources */,
 				9A55EE3C1BAF49A7006DFF30 /* AppDelegate.h */,
 				9A55EE3D1BAF49A7006DFF30 /* AppDelegate.m */,
-				9A2646DE1BB47F2400A6E3A0 /* TabBarViewController.h */,
-				9A2646DF1BB47F2400A6E3A0 /* TabBarViewController.m */,
-				9A55EE3F1BAF49A7006DFF30 /* PianoViewController.h */,
-				9A55EE401BAF49A7006DFF30 /* PianoViewController.m */,
-				9A55EE501BAF4AD7006DFF30 /* PianoView.h */,
-				9A55EE511BAF4AD7006DFF30 /* PianoView.m */,
-				9A7F4D521BB467AD00F0F50B /* GridViewController.h */,
-				9A7F4D531BB467AD00F0F50B /* GridViewController.m */,
-				9A2646DB1BB4745600A6E3A0 /* SelectableView.h */,
-				9A2646DC1BB4745600A6E3A0 /* SelectableView.m */,
-				9A7F4D291BB4648F00F0F50B /* GridView.h */,
-				9A7F4D2A1BB4648F00F0F50B /* GridView.m */,
-				9A55EE531BAF6B0D006DFF30 /* NSMapTable+Contains.h */,
-				9A55EE541BAF6B0D006DFF30 /* NSMapTable+Contains.m */,
-				9A55EE561BAF84EC006DFF30 /* SoundController.h */,
-				9A55EE571BAF84EC006DFF30 /* SoundController.m */,
-				9A2646E11BB4985B00A6E3A0 /* PlaybackController.h */,
-				9A2646E21BB4985B00A6E3A0 /* PlaybackController.m */,
 				9A2646E41BB49B1300A6E3A0 /* Constants.h */,
-				9A2646E91BB598C600A6E3A0 /* Sounds */,
-				9A55EE421BAF49A7006DFF30 /* Main.storyboard */,
-				9A55EE451BAF49A7006DFF30 /* Assets.xcassets */,
-				9A55EE471BAF49A7006DFF30 /* LaunchScreen.storyboard */,
 				9A55EE4A1BAF49A7006DFF30 /* Info.plist */,
 				9A55EE391BAF49A7006DFF30 /* Supporting Files */,
 			);
@@ -208,8 +240,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A55EE491BAF49A7006DFF30 /* LaunchScreen.storyboard in Resources */,
-				9A55EE461BAF49A7006DFF30 /* Assets.xcassets in Resources */,
 				9A2646EA1BB598C600A6E3A0 /* Sounds in Resources */,
+				9A26470B1BB59F8700A6E3A0 /* Assets.xcassets in Resources */,
 				9A55EE441BAF49A7006DFF30 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,17 +286,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A2646E01BB47F2400A6E3A0 /* TabBarViewController.m in Sources */,
-				9A2646E31BB4985B00A6E3A0 /* PlaybackController.m in Sources */,
-				9A2646DD1BB4745600A6E3A0 /* SelectableView.m in Sources */,
-				9A55EE521BAF4AD7006DFF30 /* PianoView.m in Sources */,
-				9A55EE411BAF49A7006DFF30 /* PianoViewController.m in Sources */,
-				9A7F4D2B1BB4648F00F0F50B /* GridView.m in Sources */,
-				9A55EE551BAF6B0D006DFF30 /* NSMapTable+Contains.m in Sources */,
-				9A7F4D541BB467AD00F0F50B /* GridViewController.m in Sources */,
+				9A2647081BB59E8500A6E3A0 /* TabBarViewController.m in Sources */,
+				9A2647011BB59E8500A6E3A0 /* SoundController.m in Sources */,
+				9A2647001BB59E8500A6E3A0 /* PlaybackController.m in Sources */,
+				9A2647041BB59E8500A6E3A0 /* GridViewController.m in Sources */,
+				9A2647071BB59E8500A6E3A0 /* SelectableView.m in Sources */,
+				9A2647061BB59E8500A6E3A0 /* PianoViewController.m in Sources */,
+				9A2647021BB59E8500A6E3A0 /* NSMapTable+Contains.m in Sources */,
+				9A2647051BB59E8500A6E3A0 /* PianoView.m in Sources */,
 				9A55EE3E1BAF49A7006DFF30 /* AppDelegate.m in Sources */,
 				9A55EE3B1BAF49A7006DFF30 /* main.m in Sources */,
-				9A55EE581BAF84EC006DFF30 /* SoundController.m in Sources */,
+				9A2647031BB59E8500A6E3A0 /* GridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
