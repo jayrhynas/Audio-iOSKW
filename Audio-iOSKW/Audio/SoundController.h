@@ -18,6 +18,8 @@
 - (void)stopNote:(int)note;
 - (void)stopAllNotes;
 
+// C versions of above note methods, for fast access
+// see comments above playbackTimerCallback in PlaybackController.m
 void SoundControllerPlayNote(SoundController* sc, int note, float volume, UInt32 offset);
 void SoundControllerStopNote(SoundController* sc, int note, UInt32 offset);
 void SoundControllerStopAllNotes(SoundController* sc, UInt32 offset);

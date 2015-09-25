@@ -69,7 +69,7 @@ NSInteger TagFromCell(Cell cell) {
 - (instancetype)initWithFrame:(CGRect)frame {
     if (!(self = [super initWithFrame:frame])) return nil;
     
-    _bpm = 128;
+    _bpm = DefaultBPM;
     
     [self buildGrid];
     

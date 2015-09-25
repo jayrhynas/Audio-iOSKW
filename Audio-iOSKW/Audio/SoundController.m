@@ -15,6 +15,7 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
     MIDINoteOff       = 0x8 << 4,
 };
 
+// helper macro for logging out errors from Core Audio methods
 #if DEBUG
 #define LogErr( result, fmt, ... ) \
 { \
@@ -50,22 +51,31 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
 }
 
 - (void)setupEngine {
-    self.engine = [[AEAudioController alloc] initWithAudioDescription:[AEAudioController nonInterleavedFloatStereoAudioDescription]];
+    // create audio controller
+    AudioStreamBasicDescription desc = [AEAudioController nonInterleavedFloatStereoAudioDescription];
+    self.engine = [[AEAudioController alloc] initWithAudioDescription:desc];
     
+    // create AUSampler
     AudioComponentDescription samplerDesc = AEAudioComponentDescriptionMake(kAudioUnitManufacturer_Apple,
                                                                             kAudioUnitType_MusicDevice,
                                                                             kAudioUnitSubType_Sampler);
     
     self.samplerChannel = [[AEAudioUnitChannel alloc] initWithComponentDescription:samplerDesc];
+    
+    // Add sampler to engine
     [self.engine addChannels:@[self.samplerChannel]];
     
     _samplerUnit = self.samplerChannel.audioUnit;
     
+    // load in instrument
     [self loadAUPreset:[[NSBundle mainBundle] URLForResource:@"cross" withExtension:@"aupreset" subdirectory:@"Sounds/cross"]];
 }
 
 #pragma mark - Instruments
 
+// .aupreset files are just plist (xml) files describing an instrument
+// setting the dictionary representation on the ClassInfo property will
+// load the instrument
 - (void)loadAUPreset:(NSURL *)aupresetURL
 {
     NSDictionary *aupresetDict = [NSDictionary dictionaryWithContentsOfURL:aupresetURL];
@@ -82,26 +92,9 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
            @"Couldn't load AUPreset: %@", aupresetURL);
 }
 
-- (void)loadSoundFont:(NSURL *)soundFontURL
-{
-    AUSamplerInstrumentData instrument = {
-        .fileURL        = (__bridge CFURLRef)soundFontURL,
-        .instrumentType = kInstrumentType_SF2Preset,
-        .bankMSB        = kAUSampler_DefaultMelodicBankMSB,
-        .bankLSB        = kAUSampler_DefaultBankLSB,
-        .presetID       = 0
-    };
-    
-    LogErr(AudioUnitSetProperty(self.samplerChannel.audioUnit,
-                                kAUSamplerProperty_LoadInstrument,
-                                kAudioUnitScope_Global,
-                                0,
-                                &instrument,
-                                sizeof(instrument)),
-           @"Couldn't load SoundFont: %@", soundFontURL);
-}
-
 #pragma mark - Notes
+
+// AUSampler is controlled using MIDI events
 
 void SoundControllerPlayNote(SoundController* sc, int note, float volume, UInt32 offset) {
     UInt32 midiVol = volume * 127;

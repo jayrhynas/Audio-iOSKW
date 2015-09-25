@@ -7,6 +7,7 @@
 //
 
 static const int BaseNote = 60;
+static const int DefaultBPM = 128;
 
 static const int GridRows = 13;
 static const int GridCols = 16;
