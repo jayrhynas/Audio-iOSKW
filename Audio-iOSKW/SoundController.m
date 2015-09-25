@@ -60,6 +60,8 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
     [self.engine addChannels:@[self.samplerChannel]];
     
     _samplerUnit = self.samplerChannel.audioUnit;
+    
+    [self loadAUPreset:[[NSBundle mainBundle] URLForResource:@"cross" withExtension:@"aupreset" subdirectory:@"Sounds/cross"]];
 }
 
 #pragma mark - Instruments
@@ -103,12 +105,12 @@ typedef NS_ENUM(UInt32, MIDIMessage) {
 
 void SoundControllerPlayNote(SoundController* sc, int note, float volume, UInt32 offset) {
     UInt32 midiVol = volume * 127;
-    LogErr(MusicDeviceMIDIEvent(sc->_samplerUnit, MIDINoteOn, note, midiVol, 0),
+    LogErr(MusicDeviceMIDIEvent(sc->_samplerUnit, MIDINoteOn, note, midiVol, offset),
            @"Couldn't play note: %d", note);
 }
 
 void SoundControllerStopNote(SoundController* sc, int note, UInt32 offset) {
-    LogErr(MusicDeviceMIDIEvent(sc->_samplerUnit, MIDINoteOff, note, 127, 0),
+    LogErr(MusicDeviceMIDIEvent(sc->_samplerUnit, MIDINoteOff, note, 127, offset),
            @"Couldn't stop note: %d", note);
 }
 
